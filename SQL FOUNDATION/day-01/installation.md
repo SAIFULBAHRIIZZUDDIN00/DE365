@@ -1,5 +1,4 @@
 PostgreSQL Installation & Rental DVD Database Setup (Windows)
-
 This guide explains how to install PostgreSQL on Windows and restore the Rental DVD sample database for learning and practice.
 
 1. Download PostgreSQL
