@@ -1,29 +1,53 @@
-SELECT *
-FROM SAIFUL;
+-- 🔵 1. GET EVERYTHING FROM A TABLE
+-- * means "give me all columns"
+SELECT * FROM table_name;
+-- Example:
+SELECT * FROM employees;  -- Gets ALL columns from employees table
 
-SELECT retrieves data from a database.
+-- 🔵 2. GET SPECIFIC COLUMNS ONLY
+-- List the columns you want, separated by commas
+SELECT column1, column2 FROM table_name;
+-- Example:
+SELECT name, email, phone FROM customers;  -- Gets only these 3 columns
 
-* asterisk means all columns.
-FROM keyword followed by the table name.
-SAIFUL is the name of the table we are requesting data from.
-; we end the statement with a semicolon.
+-- 🔵 3. GET UNIQUE VALUES (NO DUPLICATES)
+-- DISTINCT shows each value only once
+SELECT DISTINCT column_name FROM table_name;
+-- Example:
+SELECT DISTINCT city FROM customers;  -- Shows each city only once
 
-# Specific Columns
-The * grabs all the columns in a table, but what if we want to select just a few of the columns?
+-- 🔵 4. NICE FORMATTING (EASY TO READ)
+-- Write each column on a new line
+SELECT 
+    first_name,
+    last_name,
+    email,
+    phone_number
+FROM employees;
 
-If we only want to select specific columns, we can list out the column names, separated by commas:
+-- 🔵 5. REAL-WORLD EXAMPLES
+-- Get all product information
+SELECT * FROM products;
 
-SELECT column1, column2, column3
-FROM table_name;
+-- Get customer names and emails only
+SELECT customer_name, email FROM customers;
 
-Here’s an example:
+-- See what countries we have (no repeats)
+SELECT DISTINCT country FROM customers;
 
-SELECT id, name, genre
-FROM shows;
+-- Get employee details nicely formatted
+SELECT 
+    emp_id,
+    first_name,
+    last_name,
+    salary,
+    department
+FROM employees;
 
-We only select the id, name, and genre columns from the shows table.
-
-Note: SQL keywords like SELECT and FROM are not case-sensitive, but it's common to write them in uppercase to distinguish them from column names (id, name, genre) and table names (shows), which are written in lowercase.
-
-REFERENCE:
-#CODEDEX#
+-- 🔵 QUICK NOTES:
+-- ✓ * = ALL columns
+-- ✓ Separate columns with commas (like a list)
+-- ✓ DISTINCT = Remove duplicates
+-- ✓ Always end with ;
+-- ✓ Keywords usually in CAPITAL LETTERS (SELECT, FROM, DISTINCT)
+-- ✓ Table names in lowercase (employees, customers)
