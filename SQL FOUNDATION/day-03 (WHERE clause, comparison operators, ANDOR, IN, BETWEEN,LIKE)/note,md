@@ -1,78 +1,74 @@
-# WHERE
-Now what if we wanted to filter information based on a condition? We can use the WHERE clause.
+# SQL WHERE Clause
 
-Where?
+The WHERE clause is used to filter records based on a condition.
+It always comes after the FROM clause.
 
-We can use the WHERE clause to filter for information based on a condition:
+## Basic Syntax
 
-SELECT *
-FROM shows
+SELECT * FROM table_name
+WHERE condition;
+
+## Examples
+
+SELECT * FROM shows
 WHERE id = 23;
 
-id = 23 is the condition. Only shows with an id equal to 23 will be returned.
-
-Here’s another example:
-
-SELECT *
-FROM shows
+SELECT * FROM shows
 WHERE year > 2020;
 
-year > 2020 is the condition. Only the shows that were released later than 2020 will be returned.
+## Comparison Operators
 
-Note: The WHERE keyword always goes after the FROM part of the query.
+=   equal to  
+!=  not equal to  
+>   greater than  
+<   less than  
+>=  greater than or equal to  
+<=  less than or equal to  
 
-# Comparison Operators
-Here are all the SQL comparison operators that we can use in a condition:
+Example:
 
-= equal to
-!= not equal to
-> greater than
-< less than
->= greater than or equal to
-<= less than or equal to
-We use them to compare two values in the WHERE clause.
-# LIKE
-The LIKE operator can be used to search for a pattern in a column. It’s used in the WHERE clause:
+SELECT * FROM shows
+WHERE rating >= 8;
 
-SELECT * 
-FROM shows 
-WHERE name LIKE 'T%'; 
+## LIKE Operator
 
-This statement filters the result to only include shows with names that begin with the letter 'T'.
+LIKE is used to search for patterns in a column.
+The % symbol is a wildcard.
 
-The percentage sign % is a wildcard character that can be used with LIKE. You can use it to match characters to a pattern of your desired query.
+Patterns:
+A%   → starts with A  
+%z   → ends with z  
+%the% → contains "the"
 
-The % can be used in different ways:
+Examples:
 
-A% matches values that begin with letter 'A'.
+SELECT * FROM shows
+WHERE name LIKE 'T%';
 
-%z matches values that end with 'z'.
-We can also use % both before and after a pattern:
+SELECT * FROM shows
+WHERE name LIKE '%the%';
 
-SELECT * 
-FROM shows 
-WHERE name LIKE '%the%'; 
+## BETWEEN Operator
 
-Here, any show that contains the word "the" in its name will be returned.
-BETWEEN
-The BETWEEN operator is used in a WHERE clause to filter the result set within a certain range. The range must be separated by an AND keyword.
+BETWEEN filters values within a range (inclusive).
 
-For example, this query filters the result to only include shows between the years 2020 and 2025 (inclusive):
+Numeric example:
 
-SELECT *
-FROM shows
-WHERE year
-BETWEEN 2020 AND 2025;
+SELECT * FROM shows
+WHERE year BETWEEN 2020 AND 2025;
 
-When the values are text, BETWEEN filters the result within the alphabetical range.
+Text (alphabetical) example:
 
-In this statement, BETWEEN filters the result to only include shows with names that begin with the letter 'A' up to 'D':
+SELECT * FROM shows
+WHERE name BETWEEN 'A' AND 'D';
 
-SELECT *
-FROM shows
-WHERE name
-BETWEEN 'A' AND 'D';
+Notes:
+- 'D' is included
+- 'Dragon Ball Super' is not included
 
-Note: BETWEEN stops at the second letter, but doesn’t include values that begin with the second letter.
+## Key Notes
 
-So if a show’s title is just 'D', it would be returned, whereas 'Dragon Ball Super' will not.
+- WHERE always comes after FROM
+- BETWEEN includes both boundary values
+- LIKE is used for pattern matching
+- % matches any number of characters
