@@ -1,0 +1,71 @@
+# 07. ORDER BY
+
+## ORDER BY
+
+So far, we’ve learned how to filter data.
+Now, let’s learn how to **sort data**.
+
+The `ORDER BY` statement is used to sort rows in **ascending** or **descending** order.
+
+- Default order: **ASC (ascending)**
+- Optional order: **DESC (descending)**
+
+---
+
+## Basic Syntax
+
+SELECT column1, column2
+FROM table_name
+ORDER BY column_name;
+
+---
+
+## Example: Ascending Order (Default)
+
+SELECT name, genre, stream, year
+FROM shows
+ORDER BY year;
+
+This sorts the `year` column from **oldest to newest**.
+
+Result example:
+
+name | genre | stream | year
+---- | ----- | ------ | ----
+Sex and the City | Drama | HBO | 1998
+The Sopranos | Crime Drama | HBO | 1999
+One Piece | Anime | Crunchyroll | 1999
+Bleach | Anime | Crunchyroll | 2004
+
+---
+
+## Example: Descending Order
+
+To get the **latest shows first**, use `DESC`.
+
+SELECT name, genre, stream, year
+FROM shows
+ORDER BY year DESC;
+
+This sorts the `year` column from **newest to oldest**.
+
+Result example:
+
+name | genre | stream | year
+---- | ----- | ------ | ----
+The Last of Us | Thriller Drama | HBO | 2023
+Tokyo Vice | Crime Drama | HBO | 2022
+Wednesday | Black Comedy | Netflix | 2022
+The Bear | Drama | Hulu | 2022
+Band of Brothers | War Drama | HBO | 2022
+
+---
+
+## Key Notes
+
+- `ORDER BY` comes **after FROM (and WHERE if used)**
+- Default sorting is **ASC**
+- Use `DESC` for descending order
+- You can sort by numbers, text, or dates
+
+---
