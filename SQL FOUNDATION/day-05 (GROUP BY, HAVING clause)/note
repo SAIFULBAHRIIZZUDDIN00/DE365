@@ -1,0 +1,100 @@
+# GROUP BY and HAVING Clause
+
+## GROUP BY
+
+The `GROUP BY` clause is used with **aggregate functions** such as:
+
+COUNT()  
+SUM()  
+AVG()  
+MAX()  
+MIN()  
+
+When you use `GROUP BY`, the table is split into **groups (piles)** based on column values.
+Each group returns **one row**.
+
+---
+
+## Basic GROUP BY Syntax
+
+SELECT column_name, AGGREGATE_FUNCTION(column_name)
+FROM table_name
+GROUP BY column_name;
+
+---
+
+## GROUP BY Example
+
+SELECT stream, COUNT(*)
+FROM shows
+GROUP BY stream;
+
+Counts how many shows are available on each streaming platform.
+
+---
+
+## HAVING Clause
+
+The `HAVING` clause is used to **filter groups**, not individual rows.
+
+- `WHERE` filters rows
+- `HAVING` filters grouped results
+
+`HAVING` is used **after GROUP BY** and works with aggregate functions.
+
+---
+
+## HAVING Syntax
+
+SELECT column_name, AGGREGATE_FUNCTION(column_name)
+FROM table_name
+GROUP BY column_name
+HAVING condition;
+
+---
+
+## HAVING Example
+
+SELECT stream, COUNT(*)
+FROM shows
+GROUP BY stream
+HAVING COUNT(*) > 2;
+
+Returns only streaming platforms that have **more than 2 shows**.
+
+---
+
+## WHERE vs HAVING
+
+WHERE  → filters rows before grouping  
+HAVING → filters groups after grouping  
+
+Example with both:
+
+SELECT genre, AVG(rating)
+FROM shows
+WHERE year >= 2020
+GROUP BY genre
+HAVING AVG(rating) >= 8;
+
+---
+
+## Query Order (Execution)
+
+FROM  
+WHERE  
+GROUP BY  
+HAVING  
+SELECT  
+ORDER BY  
+
+---
+
+## Key Notes
+
+- GROUP BY splits rows into groups
+- HAVING filters aggregated results
+- WHERE cannot be used with aggregate functions
+- HAVING must be used for aggregate conditions
+
+---

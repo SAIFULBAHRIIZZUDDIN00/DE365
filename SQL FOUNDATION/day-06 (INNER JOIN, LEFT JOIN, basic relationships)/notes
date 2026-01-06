@@ -1,0 +1,90 @@
+# INNER JOIN and LEFT JOIN
+
+## JOIN
+
+A `JOIN` is used to combine rows from two or more tables
+based on a related column between them.
+
+---
+
+## INNER JOIN
+
+`INNER JOIN` returns **only the rows that have matching values**
+in both tables.
+
+### Syntax
+
+SELECT columns
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
+
+---
+
+### INNER JOIN Example
+
+SELECT shows.name, streams.platform
+FROM shows
+INNER JOIN streams
+ON shows.stream_id = streams.id;
+
+Result:
+- Only shows that have a matching stream in `streams`
+- Rows without a match are **excluded**
+
+---
+
+## LEFT JOIN
+
+`LEFT JOIN` returns **all rows from the left table**
+and the matched rows from the right table.
+
+If there is no match, the result will contain **NULL values**
+for columns from the right table.
+
+---
+
+### LEFT JOIN Syntax
+
+SELECT columns
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
+
+---
+
+### LEFT JOIN Example
+
+SELECT shows.name, streams.platform
+FROM shows
+LEFT JOIN streams
+ON shows.stream_id = streams.id;
+
+Result:
+- All rows from `shows` are returned
+- If a show has no matching stream, `platform` will be NULL
+
+---
+
+## INNER JOIN vs LEFT JOIN
+
+INNER JOIN  
+- Returns only matching rows  
+- Excludes unmatched rows  
+
+LEFT JOIN  
+- Returns all rows from the left table  
+- Includes unmatched rows with NULL values  
+
+---
+
+## When to Use
+
+Use INNER JOIN when:
+- You only want rows that exist in both tables
+
+Use LEFT JOIN when:
+- You want all records from the main table
+- Even if related data is missing
+
+---

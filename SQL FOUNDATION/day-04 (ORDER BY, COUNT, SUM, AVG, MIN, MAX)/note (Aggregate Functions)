@@ -1,0 +1,99 @@
+# SQL Aggregate Functions
+
+An **aggregate function** performs a calculation on a set of values
+and returns **a single value**.
+
+Aggregate functions are commonly used with the `GROUP BY` clause.
+
+`GROUP BY` splits the result into groups, and the aggregate function
+returns one value for each group.
+
+---
+
+## Common SQL Aggregate Functions
+
+MIN()   → returns the smallest value  
+MAX()   → returns the largest value  
+COUNT() → returns the number of rows  
+SUM()   → returns the total sum of a numeric column  
+AVG()   → returns the average value of a numeric column  
+
+---
+
+## Basic Syntax
+
+SELECT AGGREGATE_FUNCTION(column_name)
+FROM table_name;
+
+---
+
+## Examples
+
+### MIN()
+
+SELECT MIN(year)
+FROM shows;
+
+Returns the earliest year.
+
+---
+
+### MAX()
+
+SELECT MAX(year)
+FROM shows;
+
+Returns the latest year.
+
+---
+
+### COUNT()
+
+SELECT COUNT(*)
+FROM shows;
+
+Returns the total number of rows.
+
+SELECT COUNT(stream)
+FROM shows;
+
+Counts only non-NULL values in `stream`.
+
+---
+
+### SUM()
+
+SELECT SUM(revenue)
+FROM shows;
+
+Returns the total revenue.
+
+---
+
+### AVG()
+
+SELECT AVG(rating)
+FROM shows;
+
+Returns the average rating.
+
+---
+
+## Aggregate Functions with GROUP BY
+
+SELECT stream, COUNT(*)
+FROM shows
+GROUP BY stream;
+
+Returns the number of shows for each streaming platform.
+
+---
+
+## Important Notes
+
+- Aggregate functions **ignore NULL values**
+- `COUNT(*)` includes NULL values
+- Used often with `GROUP BY`
+- Returns one value per group
+
+---
